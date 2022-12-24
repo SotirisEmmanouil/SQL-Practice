@@ -117,7 +117,7 @@ SELECT COUNT (*) FROM competition;
 
 SELECT COUNT (DISTINCT host) FROM competition;
 
-/* Those competitions scheduled to happen in the year 2048 are postponed for year 2049. */
+/* Set those competitions scheduled to happen in the year 2048 to be postponed for the year 2049. */
 
 UPDATE competition 
 SET year = '2049'
