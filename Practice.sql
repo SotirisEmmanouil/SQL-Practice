@@ -123,7 +123,7 @@ UPDATE competition
 SET year = '2049'
 WHERE year = '2048';
 
-/*Increase the difficulty level by 2 of those problems whose difficulty level is equal to 1 */
+/* Increase the difficulty level by 2 of those problems whose difficulty level is equal to 1 */
 
 UPDATE problem 
 SET difficultyLevel = difficultyLevel + 2 
