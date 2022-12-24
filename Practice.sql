@@ -92,10 +92,10 @@ permitID varchar (20),
 problemID varchar (32),
 graderID varchar (16),
 grade number (*, 0) check (0 <= grade and grade <= 100), 
-primary key (eventID, permitID, problemID),
-foreign key (eventID, permitID) references permit,
-foreign key (problemID, eventID) references selectedProblem,
-foreign key (graderID, problemID, eventID) references approvedGrader);
+PRIMARY KEY (eventID, permitID, problemID),
+FOREIGN KEY (eventID, permitID) references permit,
+FOREIGN KEY (problemID, eventID) references selectedProblem,
+FOREIGN KEY (graderID, problemID, eventID) references approvedGrader);
 
 CREATE TABLE graderPay (
 problemID varchar (32),
@@ -111,7 +111,10 @@ p.pID NOT IN (SELECT problemID FROM selectedProblem);
 
 /* How many competitions have there been? */
  
-SELECT * FROM competition;
+SELECT COUNT (*) FROM competition;
  
-/* 
+/* How many schools have been selected to host a competition? */
+
+SELECT COUNT (DISTINCT host) FROM competition;
+
 
