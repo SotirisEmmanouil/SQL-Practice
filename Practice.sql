@@ -128,3 +128,9 @@ WHERE year = '2048';
 UPDATE problem 
 SET difficultyLevel = difficultyLevel + 2 
 WHERE difficultyLevel = 1;
+
+/* Withdraw from selection all problems selected by wizard whose name is Antonin Dolohov. */
+
+DELETE * FROM selectedProblem 
+WHERE selector in (SELECT magID FROM wizard WHERE wizName = 'Antonin Dolohov';
+
