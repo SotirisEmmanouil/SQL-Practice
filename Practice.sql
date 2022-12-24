@@ -104,7 +104,7 @@ foreign key (problemID) references problem);
 
 /* Find problem ID, title, and author's name of those problems that have never been selected for a competition */
 
-SELECT p.pID, p.title, w.WizName
+SELECT p.pID, p.title, w.wizName
 FROM problem p, wizard w
 WHERE p.author = w.magID AND
 p.pID NOT IN (SELECT problemID FROM selectedProblem);
