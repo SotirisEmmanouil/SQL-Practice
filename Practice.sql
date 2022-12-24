@@ -1,12 +1,12 @@
 CREATE TABLE school (
 scID varchar(32),
-name varchar(64) default ",
-city varchar (16) default ",
+name varchar(64) default '',
+city varchar (16) default '',
 primary key (scID));
 
 CREATE TABLE wizard (
 magID varchar (16),
-wizName varchar (48) default ",
+wizName varchar (48) default '',
 dateBorn date default sysdate, 
 primary key (magID));
 
@@ -108,4 +108,10 @@ SELECT p.pID, p.title, w.WizName
 FROM problem p, wizard w
 WHERE p.author = w.magID AND
 p.pID NOT IN (SELECT problemID FROM selectedProblem);
+
+/* How many competitions have there been? */
+ 
+SELECT * FROM competition;
+ 
+/* 
 
