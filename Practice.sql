@@ -1,32 +1,32 @@
 CREATE TABLE school (
-scID varchar(32),
-name varchar(64) default '',
-city varchar (16) default '',
+scID VARCHAR (32),
+name VARCHAR (64) default '',
+city VARCHAR (16) default '',
 primary key (scID));
 
 CREATE TABLE wizard (
-magID varchar (16),
-wizName varchar (48) default '',
+magID VARCHAR (16),
+wizName VARCHAR (48) default '',
 dateBorn date default sysdate, 
 primary key (magID));
 
 CREATE TABLE attend (
-who varchar (16),
-what varchar (32) not null,
+who VARCHAR (16),
+what VARCHAR (32) not null,
 when char (4) not null,
 primary key (who),
 foreign key (who) references wizard,
 foreign key (what) references school);
 
 CREATE TABLE competition ( 
-compID varchar (28),
+compID VARCHAR (28),
 year char (4) not null,
-host varchar (32) not null, 
+host VARCHAR (32) not null, 
 primary key (compID),
 foreign key (host) references school);
 
 CREATE TABLE permit (
-eventID varchar (28), 
+eventID VARCHAR (28), 
 permID varchar (20),
 player varchar (16) not null,
 primary key (eventID, permID),
