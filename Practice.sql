@@ -115,7 +115,7 @@ SELECT COUNT (*) FROM competition;
  
 /* How many schools have been selected to host a competition? */
 
-SELECT COUNT (DISTINCT host) FROM competition;
+SELECT COUNT DISTINCT (host) FROM competition;
 
 /* Set those competitions scheduled to happen in the year 2048 to be postponed for the year 2049. */
 
