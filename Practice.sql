@@ -139,4 +139,5 @@ WHERE selector in (SELECT magID FROM wizard WHERE wizName = 'Antonin Dolohov';
 /* Find identifiers and names of those wizards who have attended school, but have never received a permission to compete.  */
  SELECT w.magID, w.wizName
  FROM wizard w, attend a
- WHERE w.magID = a.who AND w.magID NOT IN (SELECT player FROM competition);
+ WHERE w.magID = a.who AND 
+ w.magID NOT IN (SELECT player FROM competition);
