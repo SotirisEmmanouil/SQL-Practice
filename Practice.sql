@@ -134,7 +134,7 @@ WHERE difficultyLevel = 1;
 /* Withdraw from selection all problems selected by wizard whose name is Antonin Dolohov. */
 
 DELETE * FROM selectedProblem 
-WHERE selector in (SELECT magID FROM wizard WHERE wizName = 'Antonin Dolohov';
+WHERE selector IN (SELECT magID FROM wizard WHERE wizName = 'Antonin Dolohov';
 
 /* Find identifiers and names of those wizards who have attended school, but have never received a permission to compete.  */
  SELECT w.magID, w.wizName
