@@ -152,5 +152,5 @@ WHERE selector IN (SELECT magID FROM wizard WHERE wizName = 'Antonin Dolohov';
   s.competitionID = c.compID AND
   p.pID = s2.problemID AND
   s2.competitionID = c2.compID AND
-  c1.year != c2.year;               
+  c.year != c2.year;               
                 
