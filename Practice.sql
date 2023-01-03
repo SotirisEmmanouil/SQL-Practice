@@ -50,17 +50,17 @@ FOREIGN KEY (gameID, permitID) REFERENCES permit);
 
 CREATE TABLE problem (
 pID varchar (32),
-title varchar (96) NOT null,
-text varchar (1860) NOT null,
-author varchar (16) NOT null,
+title varchar (96) NOT NULL,
+text varchar (1860) NOT NULL,
+author varchar (16) NOT NULL,
 difficultyLevel number (*,0) CHECK (1 <= difficultyLevel AND difficultyLevel =< 100),
 PRIMARY KEY (pID),
 FOREIGN KEY (author) REFERENCES wizard);
 
 CREATE TABLE selectedProblem (
 problemID varchar (32), 
-competitionID varchar (28) NOT null,
-selector varchar (16) NOT null, 
+competitionID varchar (28) NOT NULL,
+selector varchar (16) NOT NULL, 
 testData varchar (2048) DEFAULT '',
 gradingAdvice varchar (1972) DEFAULT '', 
 PRIMARY KEY (problemID, competitionID),
@@ -119,7 +119,7 @@ SELECT COUNT (*) FROM competition;
 
 SELECT COUNT (DISTINCT host) FROM competition;
 
-/* Set those competitions scheduled to happen in the year 2048 to be postponed for the year 2049. */
+/* Set those competitions scheduled to happen in the year 2048 to be postponed for the year 2049 */
 
 UPDATE competition 
 SET year = '2049'
@@ -131,12 +131,12 @@ UPDATE problem
 SET difficultyLevel = difficultyLevel + 2 
 WHERE difficultyLevel = 1;
 
-/* Withdraw from selection all problems selected by wizard whose name is Antonin Dolohov. */
+/* Withdraw from selection all problems selected by wizard whose name is Antonin Dolohov */
 
 DELETE * FROM selectedProblem 
 WHERE selector IN (SELECT magID FROM wizard WHERE wizName = 'Antonin Dolohov';
 
-/* Find identifiers and names of those wizards who have attended school, but have never received a permission to compete.  */
+/* Find identifiers and names of those wizards who have attended school, but have never received a permission to compete  */
  
  SELECT w.magID, w.wizName
  FROM wizard w, attend a
@@ -153,7 +153,15 @@ WHERE selector IN (SELECT magID FROM wizard WHERE wizName = 'Antonin Dolohov';
   p.pID = s2.problemID AND
   s2.competitionID = c2.compID AND
   c.year != c2.year;               
-/* A new school has been created with school ID = 3498558 ,named = School1 , and located in city New York */
+
+ /* A new school has been created with school ID = 3498558 ,named = School1 , and located in city New York */
    
  INSERT INTO school (scID, name, city) VALUES 
  (3498558, School1, New York);             
+
+ /* The administration requests that wizards also submit their social security numbers for identification purposes */
+                   
+ ALTER TABLE wizard 
+ ADD (ssn varchar (9));                 
+ 
+                  
