@@ -163,5 +163,3 @@ WHERE selector IN (SELECT magID FROM wizard WHERE wizName = 'Antonin Dolohov';
                    
  ALTER TABLE wizard 
  ADD (ssn varchar (9));                 
- 
-                  
