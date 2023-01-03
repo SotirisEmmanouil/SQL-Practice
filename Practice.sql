@@ -137,7 +137,20 @@ DELETE * FROM selectedProblem
 WHERE selector IN (SELECT magID FROM wizard WHERE wizName = 'Antonin Dolohov';
 
 /* Find identifiers and names of those wizards who have attended school, but have never received a permission to compete.  */
+ 
  SELECT w.magID, w.wizName
  FROM wizard w, attend a
  WHERE w.magID = a.who AND 
  w.magID NOT IN (SELECT player FROM competition);
+
+/* Find problem ID, title, and author name of those problems that have been selected for competition in (at least) two different years */
+ 
+  SELECT p.pID, p.title, w.wizName
+  FROM problem p, wizard w, selectedProblem s, competition c, competition c2, selectedProblem s2
+  WHERE p.author = w.wizName AND
+  p.pID = s.problemID AND
+  s.competitionID = c.compID AND
+  p.pID = s2.problemID AND
+  s2.competitionID = c2.compID AND
+  c1.year != c2.year;               
+                
