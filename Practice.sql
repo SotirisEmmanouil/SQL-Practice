@@ -1,3 +1,5 @@
+/* The tables needed for the queries and instructions */
+
 CREATE TABLE school (
 scID varchar (32),
 name varchar (64) DEFAULT '',
