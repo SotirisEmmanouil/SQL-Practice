@@ -156,7 +156,7 @@ WHERE selector IN (SELECT magID FROM wizard WHERE wizName = 'Antonin Dolohov';
   s2.competitionID = c2.compID AND
   c.year != c2.year;               
 
- /* A new school has been created with school ID = 3498558 ,named = School1 , and located in city New York */
+ /* A new school has been created with school ID = 3498558 ,name = School1 , and located in city New York */
    
  INSERT INTO school (scID, name, city) VALUES 
  (3498558, School1, New York);             
